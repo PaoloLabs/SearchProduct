@@ -130,6 +130,8 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
         return UITableViewCell()
     }
     
+    var controlSend = true
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0{
             self.delegate?.didSelectRowAtIndexPathInTableView(String())
@@ -147,7 +149,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
             self.delegate?.didSelectRowAtIndexPathInTableView(data)
             self.searchBar.text = data
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(ViewController.searchBarText, object: self.searchBar.text)
+        
         self.tableView.hidden = true
     }
     

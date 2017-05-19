@@ -19,6 +19,7 @@
 		52345CF11ECF3699000AB3BC /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CF01ECF3699000AB3BC /* ViewUtil.swift */; };
 		52345CF41ECF3C3B000AB3BC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CF21ECF3C3B000AB3BC /* CollectionViewCell.swift */; };
 		52345CF51ECF3C3B000AB3BC /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52345CF31ECF3C3B000AB3BC /* CollectionViewCell.xib */; };
+		52345CF71ECF43B2000AB3BC /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CF61ECF43B2000AB3BC /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		52345CF01ECF3699000AB3BC /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		52345CF21ECF3C3B000AB3BC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52345CF31ECF3C3B000AB3BC /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		52345CF61ECF43B2000AB3BC /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		CB3A16D346E1EC2732240DC2 /* Pods-SearchProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchProject/Pods-SearchProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CB9C0768803C963C16AF4C5A /* Pods_SearchProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 		52345CE51ECF340B000AB3BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52345CF61ECF43B2000AB3BC /* ProductModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52345CF41ECF3C3B000AB3BC /* CollectionViewCell.swift in Sources */,
+				52345CF71ECF43B2000AB3BC /* ProductModel.swift in Sources */,
 				52345CEE1ECF35E3000AB3BC /* SearchBarListView.swift in Sources */,
 				52345CC81ECF30D8000AB3BC /* ViewController.swift in Sources */,
 				52345CF11ECF3699000AB3BC /* ViewUtil.swift in Sources */,
