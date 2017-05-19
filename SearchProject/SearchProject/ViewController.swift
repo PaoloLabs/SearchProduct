@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SearchBarListViewDelegate {
     
     var searchBarListView: SearchBarListView!
+    class var searchBarText: String { return "searchBarText" }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +24,34 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.searchBarText), name: ViewController.searchBarText, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ViewController.searchBarText, object: nil)
+    }
     
     // MARK: ConfigureView
     func configureView()
     {
         self.searchBarListView = SearchBarListView(frame: ViewUtil.getContainerFrame(self, notificationHeight: 20.0))
+        self.searchBarListView.delegate = self
         self.view.addSubview(self.searchBarListView)
-        self.searchBarListView.dataArray = ["asdf", "rebeca", "lista"]
     }
+    
+    
+    func didSelectRowAtIndexPathInTableView(stringData: String) {
+        print("selecciono \(stringData)")
+    }
+    
+    func searchBarText(notification: NSNotification) {
+        if let object = notification.object as? String {
+            print("selecciono \(object)")
+        }
+
+    }
+    
 }
 

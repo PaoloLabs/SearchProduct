@@ -133,6 +133,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0{
             self.delegate?.didSelectRowAtIndexPathInTableView(String())
+            self.searchBar.text = String()
         }
         else {
             self.searchBar.resignFirstResponder()
@@ -146,6 +147,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
             self.delegate?.didSelectRowAtIndexPathInTableView(data)
             self.searchBar.text = data
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(ViewController.searchBarText, object: self.searchBar.text)
         self.tableView.hidden = true
     }
     
@@ -169,6 +171,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
             dispatch_async(dispatch_get_main_queue()) {
                 self.searchBar.resignFirstResponder()
                 self.tableView.hidden = true
+                NSNotificationCenter.defaultCenter().postNotificationName(ViewController.searchBarText, object: self.searchBar.text)
             }
         }
     }
@@ -186,5 +189,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.tableView.reloadData()
         self.tableView.hidden = true
+        self.searchBar.text = ""
+        NSNotificationCenter.defaultCenter().postNotificationName(ViewController.searchBarText, object: self.searchBar.text)
     }
 }
