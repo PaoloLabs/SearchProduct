@@ -14,6 +14,9 @@
 		52345CCD1ECF30D8000AB3BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52345CCC1ECF30D8000AB3BC /* Assets.xcassets */; };
 		52345CD01ECF30D8000AB3BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52345CCE1ECF30D8000AB3BC /* LaunchScreen.storyboard */; };
 		52345CDB1ECF30D8000AB3BC /* SearchProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CDA1ECF30D8000AB3BC /* SearchProjectTests.swift */; };
+		52345CEE1ECF35E3000AB3BC /* SearchBarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CEC1ECF35E3000AB3BC /* SearchBarListView.swift */; };
+		52345CEF1ECF35E3000AB3BC /* SearchBarListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52345CED1ECF35E3000AB3BC /* SearchBarListView.xib */; };
+		52345CF11ECF3699000AB3BC /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52345CF01ECF3699000AB3BC /* ViewUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		52345CD61ECF30D8000AB3BC /* SearchProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52345CDA1ECF30D8000AB3BC /* SearchProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProjectTests.swift; sourceTree = "<group>"; };
 		52345CDC1ECF30D8000AB3BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52345CEC1ECF35E3000AB3BC /* SearchBarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarListView.swift; sourceTree = "<group>"; };
+		52345CED1ECF35E3000AB3BC /* SearchBarListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBarListView.xib; sourceTree = "<group>"; };
+		52345CF01ECF3699000AB3BC /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		CB3A16D346E1EC2732240DC2 /* Pods-SearchProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchProject/Pods-SearchProject.debug.xcconfig"; sourceTree = "<group>"; };
 		CB9C0768803C963C16AF4C5A /* Pods_SearchProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,8 +99,11 @@
 		52345CC41ECF30D8000AB3BC /* SearchProject */ = {
 			isa = PBXGroup;
 			children = (
+				52345CE71ECF3420000AB3BC /* Controller */,
+				52345CE61ECF3417000AB3BC /* View */,
+				52345CE51ECF340B000AB3BC /* Model */,
 				52345CC51ECF30D8000AB3BC /* AppDelegate.swift */,
-				52345CC71ECF30D8000AB3BC /* ViewController.swift */,
+				52345CF01ECF3699000AB3BC /* ViewUtil.swift */,
 				52345CC91ECF30D8000AB3BC /* Main.storyboard */,
 				52345CCC1ECF30D8000AB3BC /* Assets.xcassets */,
 				52345CCE1ECF30D8000AB3BC /* LaunchScreen.storyboard */,
@@ -110,6 +119,30 @@
 				52345CDC1ECF30D8000AB3BC /* Info.plist */,
 			);
 			path = SearchProjectTests;
+			sourceTree = "<group>";
+		};
+		52345CE51ECF340B000AB3BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		52345CE61ECF3417000AB3BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52345CEC1ECF35E3000AB3BC /* SearchBarListView.swift */,
+				52345CED1ECF35E3000AB3BC /* SearchBarListView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		52345CE71ECF3420000AB3BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52345CC71ECF30D8000AB3BC /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		E3B45191BF2F857B6582C693 /* Frameworks */ = {
@@ -204,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52345CEF1ECF35E3000AB3BC /* SearchBarListView.xib in Resources */,
 				52345CD01ECF30D8000AB3BC /* LaunchScreen.storyboard in Resources */,
 				52345CCD1ECF30D8000AB3BC /* Assets.xcassets in Resources */,
 				52345CCB1ECF30D8000AB3BC /* Main.storyboard in Resources */,
@@ -272,7 +306,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52345CEE1ECF35E3000AB3BC /* SearchBarListView.swift in Sources */,
 				52345CC81ECF30D8000AB3BC /* ViewController.swift in Sources */,
+				52345CF11ECF3699000AB3BC /* ViewUtil.swift in Sources */,
 				52345CC61ECF30D8000AB3BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

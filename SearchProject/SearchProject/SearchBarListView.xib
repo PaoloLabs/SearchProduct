@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarListView" customModule="SearchProject" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="eI2-yQ-I1m" id="Pc0-B5-LHO"/>
+                <outlet property="searchBar" destination="CJa-9A-L5x" id="2V6-5S-IMv"/>
+                <outlet property="tableView" destination="xw6-VU-lSu" id="D3H-nl-bA0"/>
+                <outlet property="view" destination="p36-a3-tmU" id="rua-Gg-aN4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="p36-a3-tmU">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" text="" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJa-9A-L5x">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xw6-VU-lSu">
+                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-yQ-I1m">
+                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="LCK-19-2p9">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CJa-9A-L5x" firstAttribute="top" secondItem="p36-a3-tmU" secondAttribute="top" id="3Fh-zl-yyq"/>
+                <constraint firstAttribute="trailing" secondItem="eI2-yQ-I1m" secondAttribute="trailing" id="6vu-zD-Bgx"/>
+                <constraint firstAttribute="trailing" secondItem="CJa-9A-L5x" secondAttribute="trailing" id="ANG-JH-0c5"/>
+                <constraint firstItem="xw6-VU-lSu" firstAttribute="top" secondItem="CJa-9A-L5x" secondAttribute="bottom" id="CV9-hd-ZHW"/>
+                <constraint firstAttribute="bottom" secondItem="xw6-VU-lSu" secondAttribute="bottom" id="DRI-7K-CX8"/>
+                <constraint firstItem="CJa-9A-L5x" firstAttribute="trailing" secondItem="xw6-VU-lSu" secondAttribute="trailing" id="M28-X0-9h4"/>
+                <constraint firstAttribute="bottom" secondItem="eI2-yQ-I1m" secondAttribute="bottom" id="icq-u1-kmw"/>
+                <constraint firstItem="CJa-9A-L5x" firstAttribute="leading" secondItem="xw6-VU-lSu" secondAttribute="leading" id="rgt-4T-EAp"/>
+                <constraint firstItem="eI2-yQ-I1m" firstAttribute="leading" secondItem="p36-a3-tmU" secondAttribute="leading" id="rsi-F2-9nc"/>
+                <constraint firstItem="CJa-9A-L5x" firstAttribute="leading" secondItem="p36-a3-tmU" secondAttribute="leading" id="uPg-Dn-bbT"/>
+                <constraint firstItem="eI2-yQ-I1m" firstAttribute="top" secondItem="CJa-9A-L5x" secondAttribute="bottom" id="wwz-69-3CJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="366" y="397"/>
+        </view>
+    </objects>
+</document>
