@@ -22,7 +22,6 @@ class ViewController: UIViewController, SearchBarListViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-        self.consumeService()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,18 +45,17 @@ class ViewController: UIViewController, SearchBarListViewDelegate {
         self.view.addSubview(self.searchBarListView)
     }
     
-    func consumeService() {
-        
+    func consumeService(text: String) {
         MRProgressOverlayView.showOverlayAddedTo(self.view, animated: true)
-        let url: NSString = "https://www.liverpool.com.mx/tienda?s=computadora&d3106047a194921c01969dfdec083925=json"
+        let url: NSString = "https://www.liverpool.com.mx/tienda?s=\(text)&d3106047a194921c01969dfdec083925=json"
         let urlStr: NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let searchURL: NSURL = NSURL(string: String(urlStr))!
         let request = NSMutableURLRequest(URL: searchURL)
         Alamofire.request(request).responseJSON { (response) in
-//            print(response.request)  // original URL request
-//            print(response.response) // HTTP URL response
-//            print(response.data)     // server data
-//            print(response.result)   // result of response serialization
+            //            print(response.request)  // original URL request
+            //            print(response.response) // HTTP URL response
+            //            print(response.data)     // server data
+            //            print(response.result)   // result of response serialization
             self.productsArray = []
             if let respJSON = response.result.value {
                 let dataJSON = JSON(respJSON)
@@ -80,18 +78,26 @@ class ViewController: UIViewController, SearchBarListViewDelegate {
                     }
                 }
             }
-            self.searchBarListView.reloadSearchProduct(self.productsArray)
-            MRProgressOverlayView.dismissOverlayForView(self.view, animated: false)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.searchBarListView.reloadSearchProduct(self.productsArray)
+                    MRProgressOverlayView.dismissOverlayForView(self.view, animated: false)
+                }
+            }
         }
     }
     
     func didSelectRowAtIndexPathInTableView(stringData: String) {
-        print("selecciono \(stringData)")
+        if !stringData.isEmpty {
+            self.consumeService(stringData)
+        }
     }
     
     func searchBarText(notification: NSNotification) {
         if let object = notification.object as? String {
-            print("selecciono \(object)")
+            if !object.isEmpty {
+                self.consumeService(object)
+            }
         }
     }
     
