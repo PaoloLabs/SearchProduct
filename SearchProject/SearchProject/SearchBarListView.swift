@@ -15,6 +15,7 @@ protocol SearchBarListViewDelegate: class {
 class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let nibName = "SearchBarListView"
+    let idCollectionViewCell = "CollectionViewCell"
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -64,6 +65,7 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.tableView.hidden = true
+        self.collectionView.registerNib(UINib(nibName: "\(self.idCollectionViewCell)", bundle: nil),forCellWithReuseIdentifier: self.idCollectionViewCell)
         self.checkControl.removeAll()
     }
     
@@ -145,6 +147,20 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
             self.searchBar.text = data
         }
         self.tableView.hidden = true
+    }
+    
+    // MARK: CollectionView Methods
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.idCollectionViewCell, forIndexPath: indexPath) as! CollectionViewCell
+        return cell
     }
     
     // MARK: Search Bar Methods
