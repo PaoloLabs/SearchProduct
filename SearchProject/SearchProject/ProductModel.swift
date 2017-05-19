@@ -48,8 +48,8 @@ class ProductModel: NSObject {
     }
     
     init(JSONData: JSON) {
-        _productName = JSONData["product.displayName"].stringValue
-        _price = JSONData["sku.sale_Price"].stringValue
+        _productName = JSONData["product.displayName"].arrayValue[0].stringValue
+        _price = JSONData["sku.sale_Price"].arrayValue[0].stringValue
         _urlImage = JSONData["sku.thumbnailImage"].stringValue
         _location = JSONData["sky.location"].stringValue
     }
