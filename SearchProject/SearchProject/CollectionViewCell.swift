@@ -10,6 +10,11 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var locationLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

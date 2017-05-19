@@ -48,10 +48,23 @@ class ProductModel: NSObject {
     }
     
     init(JSONData: JSON) {
-        _productName = JSONData["product.displayName"].arrayValue[0].stringValue
-        _price = JSONData["sku.sale_Price"].arrayValue[0].stringValue
-        _urlImage = JSONData["sku.thumbnailImage"].stringValue
-        _location = JSONData["sky.location"].stringValue
+        _productName = String()
+        _price = String()
+        _urlImage = String()
+        _location = String()
+        
+        if JSONData["product.displayName"].arrayValue.count > 0 {
+            _productName = JSONData["product.displayName"].arrayValue[0].stringValue
+        }
+        if JSONData["sku.sale_Price"].arrayValue.count > 0 {
+            _price = JSONData["sku.sale_Price"].arrayValue[0].stringValue
+        }
+        if JSONData["sku.thumbnailImage"].arrayValue.count > 0 {
+            _urlImage = JSONData["sku.thumbnailImage"].arrayValue[0].stringValue
+        }
+        if JSONData["sku.location"].arrayValue.count > 0 {
+            _location = JSONData["sku.location"].arrayValue[0].stringValue
+        }
     }
 }
 

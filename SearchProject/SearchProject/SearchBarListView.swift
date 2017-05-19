@@ -31,7 +31,8 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
     var searchActive = false
     var checkControl = String()
     var sectionTitle = String()
-    
+    var productsArray:[ProductModel] = []
+
     // MARK: View Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -159,12 +160,22 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.productsArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let item = self.productsArray[indexPath.row]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.idCollectionViewCell, forIndexPath: indexPath) as! CollectionViewCell
+        cell.nameLbl.text = item.productName
+        cell.priceLbl.text = item.price
+        cell.locationLbl.text = item.location
+        cell.imageView.imageFromUrl(item.urlImage)
         return cell
+    }
+    
+    func reloadSearchProduct(array: [ProductModel]) {
+        self.productsArray = array
+        self.collectionView.reloadData()
     }
     
     // MARK: Search Bar Methods

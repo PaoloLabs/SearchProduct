@@ -8,6 +8,19 @@
 
 import UIKit
 
+extension UIImageView {
+    public func imageFromUrl(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            let request = NSURLRequest(URL: url)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) in
+                if data != nil {
+                    self.image = UIImage(data: data!)
+                }
+            })
+        }
+    }
+}
+
 class ViewUtil: UIView {
 
     
