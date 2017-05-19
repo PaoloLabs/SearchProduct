@@ -38,6 +38,4 @@ class ViewUtil: UIView {
                           viewController.view.frame.width,
                           viewController.view.frame.height - viewController.navigationController!.navigationBar.frame.size.height - notificationHeight)
     }
-    
-    
 }

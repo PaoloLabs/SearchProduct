@@ -71,6 +71,12 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
     }
     
     // MARK: Class Methods
+    func reloadHistorySearch() {
+        self.dataArray.removeAll()
+        self.dataArray = SaveHistoryData.getArrayData()
+        self.tableView.reloadData()
+    }
+    
     func reloadSearchBarList(stringArrayData: [String], checkControl: String){
         self.checkControl = checkControl
         self.JSONkeyFilter.removeAll()
@@ -120,10 +126,6 @@ class SearchBarListView: UIView, UISearchBarDelegate, UITableViewDelegate, UITab
             }
             else{
                 cell.textLabel?.text = self.dataArray[indexPath.row]
-            }
-            cell.accessoryType = .None
-            if !self.checkControl.isEmpty && cell.textLabel?.text == self.checkControl{
-                cell.accessoryType = .Checkmark
             }
             return cell
         }

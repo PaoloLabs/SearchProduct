@@ -42,11 +42,14 @@ class ViewController: UIViewController, SearchBarListViewDelegate {
     {
         self.searchBarListView = SearchBarListView(frame: ViewUtil.getContainerFrame(self, notificationHeight: 20.0))
         self.searchBarListView.delegate = self
+        self.searchBarListView.reloadHistorySearch()
         self.view.addSubview(self.searchBarListView)
     }
     
     func consumeService(text: String) {
         MRProgressOverlayView.showOverlayAddedTo(self.view, animated: true)
+        SaveHistoryData.addDataHistory(text)
+        searchBarListView.reloadHistorySearch()
         let url: NSString = "https://www.liverpool.com.mx/tienda?s=\(text)&d3106047a194921c01969dfdec083925=json"
         let urlStr: NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let searchURL: NSURL = NSURL(string: String(urlStr))!
